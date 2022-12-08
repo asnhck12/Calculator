@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Calculator</title>
-        <!-- <script src="Calculator.js"></script>  -->
+        <script defer src="Calculator.js"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -15,34 +15,34 @@
             </div>
             <div class="calculator">
                 <div class="screen">
-                    <input class="display-box" type="text">
-                    <button type="button" class="clear-button">c</button>
+                    <input id="displayBox" type="text">
+                    <button type="button" id="clearButton">c</button>
 
                 </div>
                 <div class="buttons">
                     <div class="row">
-                        <button type="button" class="number-buttons">7</button>
-                        <button type="button" class="number-buttons">8</button>  
-                        <button type="button" class="number-buttons">9</button>
-                        <button type="button" class="operator-buttons">/</button>
+                        <button type="button" class="numberButtons" value="7">7</button>
+                        <button type="button" class="numberButtons" value="8">8</button>  
+                        <button type="button" class="numberButtons" value="9">9</button>
+                        <button type="button" class="operatorButtons">/</button>
                     </div>
                     <div class="row">
-                        <button type="button" class="number-buttons">5</button>
-                        <button type="button" class="number-buttons">5</button>
-                        <button type="button" class="number-buttons">6</button>
-                        <button type="button" class="operator-buttons">*</button>
+                        <button type="button" class="numberButtons" value="4">4</button>
+                        <button type="button" class="numberButtons" value="5">5</button>
+                        <button type="button" class="numberButtons" value="6">6</button>
+                        <button type="button" class="operatorButtons">*</button>
                     </div>
                     <div class="row">
-                        <button type="button" class="number-buttons">1</button>
-                        <button type="button" class="number-buttons">2</button>
-                        <button type="button" class="number-buttons">3</button>
-                        <button type="button" class="operator-buttons">-</button>
+                        <button type="button" class="numberButtons" value="1">1</button>
+                        <button type="button" class="numberButtons" value="2">2</button>
+                        <button type="button" class="numberButtons" value="3">3</button>
+                        <button type="button" class="operatorButtons">-</button>
                     </div>
                     <div class="row">
-                        <button type="button" class="number-buttons">0</button>
-                        <button type="button" class="number-buttons">.</button>
-                        <button type="button" class="operator-buttons">=</button>
-                        <button type="button" class="operator-buttons">+</button>
+                        <button type="button" class="numberButtons" value="0">0</button>
+                        <button type="button" class="numberButtons" value=".">.</button>
+                        <button type="button" class="operatorButtons">=</button>
+                        <button type="button" class="operatorButtons">+</button>
                     </div>
                     
                 </div>
