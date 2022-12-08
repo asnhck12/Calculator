@@ -2,41 +2,52 @@ const display = document.getElementById("displayBox");
 const clear = document.getElementById("clearButton");
 const numbers = document.getElementsByClassName("numberButtons");
 const operator = document.getElementsByClassName("operatorButtons");
+const equal = document.getElementById("equalButton");
 
-/* For testing the calculator in console   */
-// var a = prompt("Enter the first number: ");
-// var operation = prompt("Enter the operation: ");
-// var b = prompt("Enter the second number: ");
-
-
-//Added functions to the numbered buttons and the text field that would display the numbers selected
-for (let i = 0; i < numbers.length; i++) {
-  numbers[i].addEventListener('click', function() {
-    display.value += this.value});
-};
-
-
-
-function operate() {
+// operation functions which carries out mathematical functions
+function operate(a,operation,b) {
     if (operation == "+") {
         total = Number(a) + Number(b);
-        console.log(total);
+        display.value = total;
     }
     else if (operation == "-") {
         total = Number(a) - Number(b);
-        console.log(total);
+        display.value = total;
     }
     else if (operation == "*") {
         total = Number(a) * Number(b);
-        console.log(total);
+        display.value = total;
     }
     else if (operation == "/") {
         total = Number(a) / Number(b);
-        console.log(total);
+        display.value = total;
     }
     else {
-        console.log("Please enter a valid operation.")
+        display.value("Please enter a valid operation.")
     }
 };
 
-operate();
+//Add functions to the numbered buttons and the text field that would display the numbers selected
+for (let i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener('click', function() {
+        display.value += this.value});
+};
+
+//Add clear function
+clear.addEventListener('click' , function() {
+    display.value = ""});
+
+//Registers the number entered in the display and the operator selected, followed by the display clearing
+for (let j = 0;j < operator.length; j++) {
+    operator[j].addEventListener('click', function() {
+        a = display.value;
+        operation = this.value;
+        display.value = "";
+})};
+
+
+//Registers the second number, and runs the operate function which completes the mathematical function
+equal.addEventListener('click', function() {
+    b = display.value;
+    operate(a,operation,b);
+})
