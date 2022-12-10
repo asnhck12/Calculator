@@ -27,22 +27,41 @@ function operate(a,operation,b) {
     }
 };
 
-//Add functions to the numbered buttons and the text field that would display the numbers selected
+//Displays numbers selected, added function to prevent full stop being added twice
 for (let i = 0; i < numbers.length; i++) {
-    numbers[i].addEventListener('click', function() {
-        display.value += this.value});
-};
+    numbers[i].addEventListener('click', function() { 
+        if (display.value.includes(".") && this.value != ".") {
+            display.value += this.value;
+        }
+        else if (display.value.includes(".") && this.value == ".") {
+        }
+        else {display.value += this.value} })};
 
-//Add clear function
+
+//Add clear function, clears all values
 clear.addEventListener('click' , function() {
-    display.value = ""});
+    display.value = "";
+    a = "";
+    b = ""});
 
 //Registers the number entered in the display and the operator selected, followed by the display clearing
 for (let j = 0;j < operator.length; j++) {
     operator[j].addEventListener('click', function() {
-        a = display.value;
-        operation = this.value;
-        display.value = "";
+        if (a == "") {
+            a = display.value;
+            operation = this.value;
+            display.value = "";            
+        }
+        else if (a != "") {
+            b = display.value;
+            operate(a,operation,b);
+            a = display.value;
+            b=""; 
+            display.value = "";
+        }
+        else {
+            display.value("please enter a valid operation.")
+        }
 })};
 
 
