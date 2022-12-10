@@ -4,24 +4,31 @@ const numbers = document.getElementsByClassName("numberButtons");
 const operator = document.getElementsByClassName("operatorButtons");
 const equal = document.getElementById("equalButton");
 
+a = "";
+b = "";
+operation = "";
+
 // operation functions which carries out mathematical functions
 function operate(a,operation,b) {
     if (operation == "+") {
         total = Number(a) + Number(b);
-        display.value = total;
+        display.value = Math.round(total * 10000) / 10000;
     }
     else if (operation == "-") {
         total = Number(a) - Number(b);
-        display.value = total;
+        display.value = Math.round(total * 10000) / 10000;;
     }
     else if (operation == "*") {
         total = Number(a) * Number(b);
-        display.value = total;
+        display.value = Math.round(total * 10000) / 10000;;
     }
     else if (operation == "/") {
+        if (a == "0" || b =="0") {
+        display.value = "You can't do that!";}
+        else {
         total = Number(a) / Number(b);
-        display.value = total;
-    }
+        display.value = Math.round(total * 10000) / 10000;;
+    }}
     else {
         display.value("Please enter a valid operation.")
     }
@@ -29,7 +36,7 @@ function operate(a,operation,b) {
 
 //Displays numbers selected, added function to prevent full stop being added twice
 for (let i = 0; i < numbers.length; i++) {
-    numbers[i].addEventListener('click', function() { 
+    numbers[i].addEventListener('click', function() {
         if (display.value.includes(".") && this.value != ".") {
             display.value += this.value;
         }
@@ -66,7 +73,15 @@ for (let j = 0;j < operator.length; j++) {
 
 
 //Registers the second number, and runs the operate function which completes the mathematical function
+//Runs an error message when number and operator aren't added
 equal.addEventListener('click', function() {
+    if (a == "") {
+        display.value = "Enter a number and operator.";
+        }
+    else if (a != "") {
     b = display.value;
     operate(a,operation,b);
+
+}
+    else {}
 })
